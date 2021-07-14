@@ -5,7 +5,7 @@ import Product from "./Product";
 import axios from "axios";
 
 const ProductList = () => {
-  const products = useSelector((state) => state);
+  const product = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
   const fetchProducts = async () => {
@@ -21,11 +21,10 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
-  console.log("Products: ", products);
+  console.log("Product: ", product);
 
-  console.log(products);
   return (
-    <div className="ui grid container mt-5">
+    <div className="ui grid container">
       <Product />
     </div>
   );
