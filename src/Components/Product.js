@@ -10,8 +10,8 @@ const Product = () => {
       <div className="four wide column" key={id}>
         <Link to={`/product/${id}`}>
           <div className="ui link cards">
-            <div className="card">
-              <div className="image">
+            <div className="card" style={{ height: "600px" }}>
+              <div className="image" style={{ content: "fit" }}>
                 <img src={image} alt={title} />
               </div>
               <div className="content">
