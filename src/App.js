@@ -1,20 +1,21 @@
-import logo from "./logo.svg";
-import "./App.css";
-
-import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Header from "./Components/Header";
+import Navbar from "./Components/Navbar";
 import ProductList from "./Components/ProductList";
 import ProductDetails from "./Components/ProductDetails";
+import Home from "./Pages/Home";
+import Contact from "./Pages/Contact";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Navbar />
+
         <Switch>
-          <Route path="/" exact component={ProductList} />
+          <Route path="/" exact component={Home} />
+          <Route path="/contact" exact component={Contact} />
+          <Route path="/product" exact component={ProductList} />
           <Route path="/product/:productId" exact component={ProductDetails} />
           <Route>404 Not Found!</Route>
         </Switch>
