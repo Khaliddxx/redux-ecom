@@ -13,6 +13,8 @@ const ProductDetails = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
 
+  // https://rapidapi.com/ZombieBest/api/amazon-products1/
+
   const fetchProductDetail = async () => {
     const response = await axios
       .get(`https://fakestoreapi.com/products/${productId}`)
@@ -27,7 +29,7 @@ const ProductDetails = () => {
     if (productId && productId != "") fetchProductDetail();
     return () => {
       dispatch(removeSelectedProduct());
-    }
+    };
   }, [productId]);
 
   return (
