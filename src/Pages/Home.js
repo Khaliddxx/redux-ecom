@@ -7,17 +7,17 @@ const Home = () => {
       className="container"
       style={{
         textAlign: "center",
-        border: "black solid 2px",
-        height: "550px",
+        height: "",
         margin: "auto",
         padding: "200px 0",
-        borderRadius: "60px",
+
         backgroundColor: "#541D29",
-        background: "linear-gradient(rgba(250,0,0,0.5),transparent)",
+        background:
+          "linear-gradient(to right bottom, rgba(250,0,0,0.5),transparent)",
       }}
     >
       <h1>Redux Shop</h1>
-      <h5>This is the home page.</h5>
+      <h5>A store managing states by Redux.</h5>
       <i class="fas fa-door-open"></i>
     </div>
   );
