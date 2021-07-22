@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../redux/actions/productActions";
 import Product from "./Product";
 import axios from "axios";
+import AMAZON_API_KEY from "../.env";
 
 const ProductList = () => {
   const product = useSelector((state) => state.product);
@@ -26,7 +27,7 @@ const ProductList = () => {
     },
 
     headers: {
-      "x-rapidapi-key": "8ab334a608msha2bf9b0d77b8a35p14c590jsn98c0a053c6d7",
+      "x-rapidapi-key": AMAZON_API_KEY,
       "x-rapidapi-host": "amazon24.p.rapidapi.com",
     },
   };
