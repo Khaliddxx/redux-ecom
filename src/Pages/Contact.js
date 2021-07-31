@@ -29,7 +29,7 @@ const Contact = () => {
         <Modal.Header closeButton>
           <Modal.Title>Contact Me</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Welcame Welcame</Modal.Body>
+        <Modal.Body>Welcome Welcome</Modal.Body>
 
         <Container>
           <Form>

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./Components/Navbar";
-import ProductList from "./Components/ProductList";
+import ProductListPage from "./Pages/ProductListPage";
 import ProductDetails from "./Components/ProductDetails";
 import Home from "./Pages/Home";
 import Contact from "./Pages/Contact";
@@ -15,7 +15,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/contact" exact component={Contact} />
-          <Route path="/product" exact component={ProductList} />
+          <Route path="/product" exact component={ProductListPage} />
           <Route path="/product/:productId" exact component={ProductDetails} />
           <Route>404 Not Found!</Route>
         </Switch>
