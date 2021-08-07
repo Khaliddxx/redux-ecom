@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../redux/actions/productActions";
+import { Button } from "react-bootstrap";
 import Product from "./Product";
 import axios from "axios";
 
 const ProductList = () => {
-  const product = useSelector((state) => state.product);
+  const products = useSelector((state) => state.allProducts.products);
   const [length, setLength] = useState(0);
   const dispatch = useDispatch();
   const [categoryId, setCategotyId] = useState("aps");
   const [keyword, setKeyword] = useState("iphone");
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
   let flag = true;
 
   const fetchProducts = async () => {
@@ -39,34 +41,38 @@ const ProductList = () => {
 
   useEffect(() => {
     fetchProducts();
-    flag = false;
-  }, [product]);
+  }, [products, page, keyword]);
 
   return (
     <React.Fragment>
-      <input
-        type="text"
-        placeholder="Enter Keyword"
-        onChange={(e) => setKeyword(e.target.value)}
-        style={{ display: "flex", alignItems: "center" }}
-      />
+      <div style={{ justifyContent: "center" }}>
+        <span style={{ alignContent: "center" }}>
+          <input
+            type="text"
+            placeholder="Enter Keyword"
+            onChange={(e) => setSearch(e.target.value)}
+            style={{ display: "flex", alignItems: "center" }}
+          />
+          <Button onClick={() => setKeyword(search)}>Search</Button>
+        </span>
 
-      {/* {Object.keys(product).length === 0 ? (
-        <h1>...Loading</h1>
-      ) : ( */}
-      <div className="ui grid container">
-        <Product />
-      </div>
-      {/* )} */}
-      <div className="pagination" style={{ position: "relative" }}>
-        <button value={page} onClick={(e) => setPage(page - 1)}>
-          &lt; &lt;
-        </button>
+        {Object.keys(products).length === 0 ? (
+          <h1>...Loading</h1>
+        ) : (
+          <div className="ui grid container">
+            <Product />
+          </div>
+        )}
+        <div className="pagination" style={{ position: "relative" }}>
+          <button value={page} onClick={(e) => setPage(page - 1)}>
+            &lt; &lt;
+          </button>
 
-        <span>Page: {page}</span>
-        <button value={page} onClick={(e) => setPage(page + 1)}>
-          &gt; &gt;
-        </button>
+          <span>Page: {page}</span>
+          <button value={page} onClick={(e) => setPage(page + 1)}>
+            &gt; &gt;
+          </button>
+        </div>
       </div>
     </React.Fragment>
   );

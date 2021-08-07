@@ -17,13 +17,15 @@ const Product = () => {
           <div className="ui link cards">
             <div
               className="card"
-              style={{ height: "600px", borderRadius: "20px" }}
+              style={{ height: "700px", borderRadius: "20px" }}
             >
-              <div className="image" style={{ content: "fit" }}>
+              <div className="image" style={{ content: "fill" }}>
                 <img src={product_main_image_url} alt={product_title} />
               </div>
               <div className="content">
-                <div className="header">{product_title}</div>
+                <div className="header" style={{ bottom: "0px" }}>
+                  {product_title}
+                </div>
                 <div className="meta price">$ {app_sale_price}</div>
               </div>
             </div>

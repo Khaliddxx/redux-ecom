@@ -17,7 +17,7 @@ const ProductDetails = () => {
   const fetchProductDetail = async () => {
     const options = {
       method: "GET",
-      url: `https://amazon24.p.rapidapi.com/api/product/${product_id}`,
+      url: `https://amazon24.p.rapidapi.com/api/product/${productId}`,
       params: {
         country: "US",
       },
@@ -37,11 +37,11 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
-    if (productId && productId != "") fetchProductDetail();
+    fetchProductDetail();
     return () => {
       dispatch(removeSelectedProduct());
     };
-  }, [productId]);
+  }, []);
 
   return (
     <div className="ui grid container">
